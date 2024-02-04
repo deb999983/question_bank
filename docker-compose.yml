@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+
+  question_bank_db:
+    image: question_bank_db:local
+    container_name: question_bank_db
+    restart: always
+    ports:
+      - 6432:5432
+    volumes:
+      - question_bank_db:/var/lib/postgresql/data
+
+  question_bank_api:
+    image: question_bank_api:local
+    container_name: question_bank_api
+    depends_on:
+      - question_bank_db
+    env_file:
+      - deploy/web_server/.env
+    ports:
+      - 9060:8000
+
+volumes:
+  question_bank_db:
