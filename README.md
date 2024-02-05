@@ -1,4 +1,10 @@
 ### QuestionBank API
+First clone the project by running the command,
+```
+git clone https://github.com/deb999983/question_bank.git
+```
+
+
 To start up the API first build the images by running the command
 ```
 make build
@@ -15,3 +21,7 @@ The above command will start up the following services,
 
 After the services have been started, visit http://localhost:9060/swagger/,
 to try out the apis.
+
+
+to stop the services run the following command,
+make down
